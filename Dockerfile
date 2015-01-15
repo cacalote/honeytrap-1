@@ -26,7 +26,7 @@ ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Clean up 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-RUN rm -rf /root/src/
+RUN rm -rf /root/honeytrap
 
 # Start honeytrap
 CMD ["/usr/bin/supervisord"]
