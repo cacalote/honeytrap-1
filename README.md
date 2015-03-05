@@ -1,5 +1,25 @@
-honeytrap
-=========
-In / you will find the necessary sources to create your very own honeytrap docker image.
+# dockerized honeytrap
 
-In /upstart you will find a upstart script, just copy it to /etc/init/honeytrap.conf and honeytrap will start automatically when the system boots up.
+
+[honeytrap](http://honeytrap.carnivore.it/) is a low-interaction honeypot daemon for observing attacks against network services. In contrast to other honeypots, which often focus on malware collection, honeytrap aims for catching the initial exploit – It collects and further processes attack traces.
+
+This repository contains the necessary files to create a *dockerized* version of honeytrap. 
+
+This dockerized version is part of the **[T-Pot community honeypot](http://dtag-dev-sec.github.io/)** of Deutsche Telekom AG. 
+For this setup, honeytrap is configured to use the logattacker module only. 
+
+The `Dockerfile` contains the blueprint for the dockerized honeytrap and will be used to setup the docker image.  
+
+The `honeytrap.conf` is tailored to fit the T-Pot environment. All important data is stored in `/data/honeytrap/`.
+
+The `supervisord.conf` is used to start honeytrap under supervision of supervisord. 
+
+
+In case you want to run the dockerized honeytrap independently, you must modify the config files to match your environment and rebuild the docker image.
+
+Using upstart, copy the `upstart/honeytrap.conf` to `/etc/init/honeytrap.conf` and start using
+
+    service start honeytrap
+
+This will make sure that the docker container is started with the appropriate rights and iptables forwards are implemented. Further, it autostarts during boot.
+In the T-Pot setup, some ports are excluded as they need to be reserved for other honeypot daemons running in parallel.
