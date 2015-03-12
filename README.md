@@ -19,7 +19,7 @@ In case you want to run the dockerized honeytrap independently, you must modify 
 
 Using upstart, copy the `upstart/honeytrap.conf` to `/etc/init/honeytrap.conf` and start using
 
-    service start honeytrap
+    service honeytrap start
 
 This will make sure that the docker container is started with the appropriate rights and iptables forwards are implemented. Further, it autostarts during boot.
 In the T-Pot setup, some ports are excluded as they need to be reserved for other honeypot daemons running in parallel.
