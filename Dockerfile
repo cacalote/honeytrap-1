@@ -1,7 +1,7 @@
 # Honeytrap Dockerfile by MO / AV
 #
 # VERSION 0.61
-FROM ubuntu:14.04.2
+FROM ubuntu:14.04.3
 MAINTAINER MO
 
 # Setup apt
