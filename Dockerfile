@@ -13,7 +13,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get install -y supervisor iptables git build-essential autoconf libnetfilter-queue1 libnetfilter-queue-dev libtool libpq5 libpq-dev
 
 # Install honeytrap from source
-RUN cd /root/ && git clone git://git.carnivore.it/honeytrap.git
+RUN cd /root/ && git clone https://github.com/armedpot/honeytrap
 RUN cd /root/honeytrap/ && autoreconf -fi && ./configure --with-stream-mon=nfq --with-logattacker --prefix=/opt/honeytrap && make && make install 
 
 # Setup user, groups and configs
