@@ -23,3 +23,8 @@ Using upstart, copy the `upstart/honeytrap.conf` to `/etc/init/honeytrap.conf` a
 
 This will make sure that the docker container is started with the appropriate rights and iptables forwards are implemented. Further, it autostarts during boot.
 In the T-Pot setup, some ports are excluded as they need to be reserved for other honeypot daemons running in parallel.
+
+# Honeytrap Dashboard
+
+![Honeytrap Dashboard](https://raw.githubusercontent.com/dtag-dev-sec/honeytrap/master/doc/dashboard.png)
+
