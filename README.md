@@ -1,7 +1,7 @@
 # dockerized honeytrap
 
 
-[honeytrap](http://honeytrap.carnivore.it/) is a low-interaction honeypot daemon for observing attacks against network services. In contrast to other honeypots, which often focus on malware collection, honeytrap aims for catching the initial exploit – It collects and further processes attack traces.
+[honeytrap](https://github.com/armedpot/honeytrap) is a low-interaction honeypot daemon for observing attacks against network services. In contrast to other honeypots, which often focus on malware collection, honeytrap aims for catching the initial exploit – It collects and further processes attack traces.
 
 This repository contains the necessary files to create a *dockerized* version of honeytrap.
 
