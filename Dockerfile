@@ -10,11 +10,11 @@ RUN apt-get update -y && \
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install packages
-RUN apt-get install -y supervisor iptables git build-essential autoconf libnetfilter-queue1 libnetfilter-queue-dev libtool libpq5 libpq-dev
+RUN apt-get install -y supervisor iptables git build-essential autoconf libnetfilter-queue1 libnetfilter-queue-dev libjson-c-dev libtool libpq5 libpq-dev
 
 # Install honeytrap from source
-RUN cd /root/ && git clone https://github.com/armedpot/honeytrap && \
-    cd /root/honeytrap/ && autoreconf -fi && ./configure --with-stream-mon=nfq --with-logattacker --prefix=/opt/honeytrap && make && make install 
+RUN cd /root/ && git clone -b json-logging https://github.com/adepasquale/honeytrap && \
+    cd /root/honeytrap/ && autoreconf -fi && ./configure --with-stream-mon=nfq --with-logattacker --with-logjson --prefix=/opt/honeytrap && make && make install
 
 # Setup user, groups and configs
 RUN addgroup --gid 2000 tpot && \
