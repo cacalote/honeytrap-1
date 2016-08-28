@@ -1,7 +1,7 @@
 # Honeytrap Dockerfile by MO / AV
 #
 # VERSION 16.03.3
-FROM ubuntu:14.04.4
+FROM debian:jessie
 MAINTAINER MO
 
 # Setup apt
