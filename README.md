@@ -16,14 +16,17 @@ The `supervisord.conf` is used to start honeytrap under supervision of superviso
 
 In case you want to run the dockerized honeytrap independently, you must modify the config files to match your environment and rebuild the docker image.
 
-Using upstart, copy the `upstart/honeytrap.conf` to `/etc/init/honeytrap.conf` and start using
+Using systemd, copy the `systemd/honeytrap.service` to `/etc/systemd/system/honeytrap.service` and start using
 
-    service honeytrap start
+```
+systemctl enable honeytrap
+systemctl start honeytrap
+```
 
 This will make sure that the docker container is started with the appropriate rights and iptables forwards are implemented. Further, it autostarts during boot.
 In the T-Pot setup, some ports are excluded as they need to be reserved for other honeypot daemons running in parallel.
 
-By default all data will be stored in `/data/honeytrap/` until the honeypot service will be restarted which is by default every 24 hours. If you want to keep data persistently simply rename `/data/persistence.off` to `/data/persistence.on`. Be advised to establish some sort of log management if you wish to do so.
+By default all data will be stored in `/data/honeytrap/` until the honeypot service will be restarted which is by default every 24 hours. If you want to keep data persistently simply edit the ``service`` file, find the line that contains ``clean.sh`` and set the option from ``off`` to ``on``. Be advised to establish some sort of log management if you wish to do so.
 
 # Honeytrap Dashboard
 
