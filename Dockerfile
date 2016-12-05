@@ -15,7 +15,7 @@ RUN apt-get update -y && \
 
 # Install packages
     apt-get install -y supervisor iptables git build-essential autoconf libnetfilter-queue1 \
-                       libnetfilter-queue-dev libjson-c-dev libtool libpq5 libpq-dev && \
+                       libnetfilter-queue-dev libjson-c-dev libtool libpq5 libpq-dev wget && \
 
 # Install honeytrap from source
     cd /root/ && \
